@@ -1,0 +1,35 @@
+<nav>
+  <ul class="menu">
+    <li>
+      <a href="/"
+        ><img
+          src="https://primefaces.org/cdn/primeng/images/primeng.svg"
+          class="logo"
+      /></a>
+    </li>
+    <li class="item button secondary"><p><strong>KeyForge</strong></p></li>
+    <li>
+      <button pButton pRipple label="">
+        <a style="text-decoration: none;" href="list">Últimas senhas geradas</a>
+      </button>
+    </li>
+  </ul>
+</nav>
+
+<div style="padding: 10px;">
+<button pButton pRipple  class="p-button-primary"><a href="/">Voltar</a></button>
+</div>
+<p-table [value]="passwords"  [paginator]="true" [rows]="10" [totalRecords]="totalPages"  [tableStyle]="{ 'min-width': '50rem' }">
+  <ng-template pTemplate="header">
+      <tr>
+          <th>Senha Gerada</th>
+          <th>Data de criação</th>
+      </tr>
+  </ng-template>
+  <ng-template pTemplate="body" let-passwords >
+      <tr>
+          <td>{{ passwords.generatedPassword }}</td>
+          <td>{{ passwords.createdDate | date}}</td>
+      </tr>
+  </ng-template>
+</p-table>
