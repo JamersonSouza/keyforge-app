@@ -1,1 +1,83 @@
-<p>home works!</p>
+<div class="password-generator">
+  <nav>
+    <ul class="menu">
+      <li>
+        <a href="/"
+          ><img
+            src="https://primefaces.org/cdn/primeng/images/primeng.svg"
+            class="logo"
+        /></a>
+      </li>
+      <li class="item button secondary"><p><strong>KeyForge</strong></p></li>
+      <li>
+        <p-button label="Últimas senhas geradas">
+          <a></a>
+        </p-button>
+      </li>
+    </ul>
+  </nav>
+  <div class="container" style="margin-top: 50px">
+    <form [formGroup]="passwordForm">
+      <div class="p-fluid">
+        <span class="p-float-label">
+          <input
+            pInputText
+            pKeyFilter="int"
+            type="number"
+            id="numberCharacter"
+            min="1"
+            formControlName="passwordLength"
+          />
+          <label htmlFor="numberCharacter">Digite o número de caracteres</label>
+        </span>
+      </div>
+
+      <div class="mt-2" style="margin: 30px 0">
+        <div class="card" style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+          <div class="flex align-items-center">
+            <p-checkbox [binary]="true" inputId="uppercase" formControlName="includeUppercaseLetters"></p-checkbox>
+            <label for="uppercase" class="ml-2"> Incluir Letras Maiúsculas</label>
+          </div>
+          <div class="flex align-items-center">
+            <p-checkbox [binary]="true" inputId="lowercase" formControlName="includeLowercaseLetters"></p-checkbox>
+            <label for="lowercase" class="ml-2"> Incluir Letras Minúsculas</label>
+          </div>
+          <div class="flex align-items-center">
+            <p-checkbox [binary]="true" inputId="numbers" formControlName="includeNumbers"></p-checkbox>
+            <label for="numbers" class="ml-2"> Incluir Números</label>
+          </div>
+          <div class="flex align-items-center">
+            <p-checkbox [binary]="true" inputId="special" formControlName="includeSpecialCharacters"></p-checkbox>
+            <label for="special" class="ml-2"> Incluir Caracteres Especiais</label>
+          </div>
+        </div>
+
+      </div>
+
+      <p-button label="Gerar Senha"
+        type="button"
+        class="mr-2"
+        (click)="generatePassword()"
+        [disabled]="!isGeneratePasswordButtonEnabled()"
+      >
+    </p-button>
+    <button label="Apagar Senha Gerada"
+        type="button"
+        style="margin-left: 5px;"
+        pRipple 
+        pButton 
+        (click)="clearPassword()"
+        class="p-button-danger"
+      >
+    </button>
+      <div *ngIf="showGeneratedPassword" class="card" >
+        <p style="color: #000"><strong>Senha Gerada:</strong> {{ generatedPassword }}</p>
+    </div>
+    <!-- <p-progressSpinner *ngIf="isLoading" styleClass="w-1rem h-1rem" strokeWidth="2" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner> -->
+    </form>
+  
+  </div>
+  <div *ngIf="isLoading" class="overlay">
+    <p-progressSpinner strokeWidth="4"></p-progressSpinner>
+  </div>
+</div>
