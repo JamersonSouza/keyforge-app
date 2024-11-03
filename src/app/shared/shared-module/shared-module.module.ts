@@ -4,6 +4,10 @@ import { ButtonModule } from 'primeng/button';
 import { MenubarModule } from 'primeng/menubar';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
+import { InputTextModule } from 'primeng/inputtext';
+import { CheckboxModule } from 'primeng/checkbox';
+import { MessageService } from 'primeng/api';
+import { ProgressSpinnerModule } from 'primeng/progressspinner';
 import { HomeComponent } from 'src/app/modules/keyforge-generate/pages/home/home.component';
 
 
@@ -17,8 +21,12 @@ import { HomeComponent } from 'src/app/modules/keyforge-generate/pages/home/home
     ButtonModule,
     MenubarModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
+    InputTextModule,
+    CheckboxModule,
+    ProgressSpinnerModule
 
-  ]
+  ],
+  providers:[MessageService]
 })
 export class SharedModuleModule { }
