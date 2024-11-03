@@ -4,7 +4,6 @@ import { BrowserModule } from '@angular/platform-browser';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SharedModuleModule } from './shared/shared-module/shared-module.module';
-import { ListComponent } from './modules/keyforge-generate/pages/list/list.component';
 
 
 
@@ -12,7 +11,6 @@ import { ListComponent } from './modules/keyforge-generate/pages/list/list.compo
 @NgModule({
   declarations: [
     AppComponent,
-    ListComponent,
   ],
   imports: [
     BrowserModule,

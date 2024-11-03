@@ -8,13 +8,18 @@ import { InputTextModule } from 'primeng/inputtext';
 import { CheckboxModule } from 'primeng/checkbox';
 import { MessageService } from 'primeng/api';
 import { ProgressSpinnerModule } from 'primeng/progressspinner';
+import { ToastModule } from 'primeng/toast';
 import { HomeComponent } from 'src/app/modules/keyforge-generate/pages/home/home.component';
+import { ListComponent } from 'src/app/modules/keyforge-generate/pages/list/list.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { TableModule } from 'primeng/table';
 
 
 
 @NgModule({
   declarations: [
-    HomeComponent
+    HomeComponent,
+    ListComponent
   ],
   imports: [
     CommonModule,
@@ -24,7 +29,10 @@ import { HomeComponent } from 'src/app/modules/keyforge-generate/pages/home/home
     HttpClientModule,
     InputTextModule,
     CheckboxModule,
-    ProgressSpinnerModule
+    ProgressSpinnerModule,
+    ToastModule,
+    BrowserAnimationsModule,
+    TableModule
 
   ],
   providers:[MessageService]
