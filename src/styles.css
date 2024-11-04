@@ -18,6 +18,9 @@ p,a{
   min-height: 600px;
   margin-right: 100px;
 }
+li{
+  list-style: none;
+}
 
 @media only screen and (max-width: 768px) {
   .container{
