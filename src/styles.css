@@ -16,6 +16,7 @@ p,a{
   display:  flex;
   justify-content: center;
   min-height: 600px;
+  overflow-x: hidden;
   margin-right: 100px;
 }
 li{
