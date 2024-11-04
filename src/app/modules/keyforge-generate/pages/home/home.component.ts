@@ -22,7 +22,7 @@ export class HomeComponent {
   constructor(
     private formBuilder: FormBuilder,
     private keyForgeService : KeyforgeServiceService,
-    private msg : MessageService
+    private msg : MessageService,
   ) {
     this.passwordForm = this.formBuilder.group({
       passwordLength: [''],
@@ -63,6 +63,16 @@ export class HomeComponent {
 
   clearPassword(): void{
     this.showGeneratedPassword = false;
+  }
+
+  copyToClipboard(): void{
+    if(this.generatedPassword){
+      navigator.clipboard.writeText(this.generatedPassword).then( () => {
+        this.msg.add({severity: 'info', summary: 'Sucesso', detail: 'Senha copiada com suceso!'});
+      }).catch(error => {
+        this.msg.add({ severity: 'error', summary: 'Erro', detail: 'Falha ao copiar a senha!' });
+      });
+    }
   }
 
 }

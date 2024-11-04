@@ -53,7 +53,7 @@
         </div>
 
       </div>
-
+      <div class="btn-actions">
       <p-button label="Gerar Senha"
         type="button"
         class="mr-2"
@@ -70,11 +70,19 @@
         class="p-button-danger"
       >
     </button>
-      <div *ngIf="showGeneratedPassword" class="card" >
-        <p style="color: #000"><strong>Senha Gerada:</strong> {{ generatedPassword }}</p>
+  </div>
+      <div *ngIf="showGeneratedPassword" class="card" style="display: flex; align-items: center;">
+        <p style="color: #000"><strong>Senha Gerada:</strong> {{ generatedPassword }}</p>&nbsp;&nbsp;
+        <button label="copiar"
+        type="button"
+        pRipple 
+        pButton 
+        class="p-button-primary p-button-rounded p-button-sm vertical" 
+        (click)="copyToClipboard()"
+      >
+    </button>
     </div>
-    <!-- <p-progressSpinner *ngIf="isLoading" styleClass="w-1rem h-1rem" strokeWidth="2" fill="var(--surface-ground)" animationDuration=".5s"></p-progressSpinner> -->
-    </form>
+  </form>
   
   </div>
   <div *ngIf="isLoading" class="overlay">
